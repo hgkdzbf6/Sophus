@@ -39,6 +39,13 @@ Sim3
 }
 
 Sim3
+::Sim3(double s,const Matrix3d & R,const Vector3d & t)
+  : scso3_(s,R),translation_(t)
+{
+
+}
+
+Sim3
 ::Sim3(const Sim3 & sim3)
   : scso3_(sim3.scso3_),translation_(sim3.translation_)
 {
