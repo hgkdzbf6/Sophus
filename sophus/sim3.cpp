@@ -58,6 +58,7 @@ Sim3 Sim3
 }
 
 SE3 Sim3
+
 ::to_SE3(const Sim3 & sim3)
 {
   return sim3.to_SE3();
@@ -66,7 +67,11 @@ SE3 Sim3
 SE3 Sim3
 ::to_SE3() const
 {
-  return to_SE3(*this);
+  Matrix3d R;
+  Vector3d t;
+  R=scso3_.rotationMatrix();
+  t=translation_;
+  return Sophus::SE3(R,t);
 }
 
 Sim3 Sim3
